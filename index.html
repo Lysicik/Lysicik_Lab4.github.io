@@ -1,46 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <!-- Подключение библиотеки jQuery -->
-    <script src="jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.0.0.js"> </script>
+
     <!-- Подключение jQuery плагина Masked Input -->
     <script src="jquery.maskedinput.min.js"></script>
 
     <script>
-        $("#number").mask('+7 (999) 999-99-99');
+        $(function(){
+            $("#number").mask("+7(999) 999-9999");
+        });
     </script>
 
     <meta charset="utf-8">
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.1/firebase-database.js"></script>
     <script src="app.js"></script>
-
-
-
     <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" type="image/x-icon" href="icon.jpg">
+    <link rel="shortcut icon" type="image/x-icon" href="icon.png">
 
     <title>YourData</title>
 
 </head>
 <body>
-
+<div class = "Title">Психологическая поддержка в период самоизоляции<br>Оставьте заявку, и наш оператор свяжется с вами</div>
 
 <form class = "submit_form" onsubmit="GoToDataBase(); return false;">
     <div class = "Block">
-    <div class = "windows"><input class="window_name" id="Yname" name="Yname"  required placeholder="ИМЯ" type="text" maxlength="60"> *</div>
-    <div class = "windows"><input class="window_number" id="number" name="number"   required  type="text" maxlength="60"> *</div>
+    <div class = "windows"><input class="window_name" id="Yname" name="Yname" onkeyup="var yratext=/['0-9',':']/; if(yratext.test(this.value)) alert('Введены запрещенные символы')" required placeholder="ИМЯ" type="text" maxlength="60"> *</div>
+    <div class = "windows"><input class="window_number" id="number" name="number"   placeholder="НОМЕР ТЕЛЕФОНА" required  type="text" maxlength="60"> *</div>
     <div class = "windows"><input class="window_email" id="email" name="email"  placeholder="EMAIL" type="email" maxlength="60"></div>
-    <div class = "windows"><textarea name="message" id="message"  placeholder="КОММЕНТАРИИ"></textarea> <br><input type="file" name="upload_file" size="50" value="" ></div>
+    <div class = "windows"><textarea name="message" id="message"  placeholder="КОММЕНТАРИИ"></textarea> </div>
     <button type = "submit">ОТПРАВИТЬ ЗАПРОС</button>
 </form>
-
-
-
-
-</div>
-
-
 
 
 </body>
